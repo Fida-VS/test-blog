@@ -139,6 +139,8 @@ app.delete('/users/:id', hasRole([ROLES.ADMIN]), async (req, res) => {
     res.send({ error: null })
 })
 
+app.use('/*', express.static('../frontend/build'));
+
 mongoose.connect(
     process.env.DB_CONNECTION_STRING
 ).then(() => {
